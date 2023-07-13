@@ -11,3 +11,10 @@ typeof isString === "string"
 typeof isBoolean === "boolean"
 typeof isUndefined === "undefined"
 typeof isNull === "object"
+
+const inspect = (x) => {return typeof x}
+
+console.log(inspect(isString))
+console.log("Hola Mundo")
+
+typeof isBoolean
