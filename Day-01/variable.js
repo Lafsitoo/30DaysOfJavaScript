@@ -17,4 +17,4 @@ const inspect = (x) => {return typeof x}
 console.log(inspect(isString))
 console.log("Hola Mundo")
 
-typeof isBoolean
+console.log(typeof isBoolean)
