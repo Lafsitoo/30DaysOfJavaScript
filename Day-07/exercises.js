@@ -328,6 +328,255 @@ const userIdGenerator = () => {
       Math.floor(Math.random() * characters.length)
     );
   }
-  console.log(idCharacter)
+  console.log(idCharacter);
+};
+userIdGenerator();
+
+// LEVEL THREE
+
+// Modifique la función userIdGenerator. Declare una función de nombre userIdGeneratedByUser. No toma ningún parámetro pero toma dos entradas usando prompt(). Una de las entradas es la cantidad de caracteres y la segunda entrada es la cantidad de ID que se supone que se generarán.
+const userIdGeneratedByUser = (numberOfCharacters, numberOfIds) => {
+  let letters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let userIds = [];
+  for (let i = 0; i < numberOfIds; i++) {
+    let userId = "";
+    for (let j = 0; j < numberOfCharacters; j++) {
+      userId += letters[Math.floor(Math.random() * letters.length)];
+    }
+    userIds.push(userId);
+  }
+  console.log(userIds);
+};
+userIdGeneratedByUser(10, 3);
+
+// Escriba una función llamada rgbColorGenerator que genera colores rgb
+const rgbColorGenerator = () => {
+  let rgbNum = "";
+  for (let i = 0; i <= 2; i++) {
+    random = Math.floor(Math.random() * 255);
+    if (i < 2) {
+      rgbNum += random + ", ";
+    } else {
+      rgbNum += random;
+    }
+  }
+  const rgb = `rgb(${rgbNum})`;
+  console.log(rgb);
+};
+
+rgbColorGenerator();
+
+// Escriba una función arrayOfHexaColors que retorna cualquier cantidad de colores hexadecimales en un array.
+const arrayOfHexaColors = () => {
+  const hexCharacters = "0123456789ABCDEF";
+  let idHexa = "#";
+  for (let i = 0; i <= 5; i++) {
+    idHexa += hexCharacters.charAt(
+      Math.floor(Math.random() * hexCharacters.length)
+    );
+  }
+  console.log(idHexa);
+};
+arrayOfHexaColors();
+
+// Escriba una función arrayOfRgbColors que retorna cualquier cantidad de colores RGB en un array.
+const arrayOfRgbColors = () => {
+  let rgbNum = "";
+  for (let i = 0; i <= 2; i++) {
+    random = Math.floor(Math.random() * 255);
+    if (i < 2) {
+      rgbNum += random + ", ";
+    } else {
+      rgbNum += random;
+    }
+  }
+  const rgb = `rgb(${rgbNum})`;
+  console.log(rgb);
+};
+arrayOfRgbColors();
+
+// Escriba una función convertHexaToRgb que convierta el color hexa a rgb y retorna un color rgb.
+const convertHexaToRgb = (hexa) => {
+  const hex = hexa.slice(1);
+  const red = parseInt(hex.slice(0, 2), 16);
+  const green = parseInt(hex.slice(2, 4), 16);
+  const blue = parseInt(hex.slice(4, 6), 16);
+  console.log(`rgb(${red}, ${green}, ${blue})`);
+};
+convertHexaToRgb("#A3424B");
+
+// Escriba una función convertRgbToHexa que convierta rgb a color hexa y retorna un color hexa.
+const convertRgbToHexa = (red, green, blue) => {
+  const hex = `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+  console.log(hex);
+};
+convertRgbToHexa(245, 19, 88);
+
+// Escriba una función generateColors que pueda generar cualquier número de colores hexa o rgb.
+const generateColors = (type, numberOfColors) => {
+  const colors = [];
+  for (let i = 0; i < numberOfColors; i++) {
+    if (type === "hexa") {
+      const hexCharacters = "0123456789ABCDEF";
+      let idHexa = "#";
+      for (let j = 0; j <= 5; j++) {
+        idHexa += hexCharacters.charAt(
+          Math.floor(Math.random() * hexCharacters.length)
+        );
+      }
+      colors.push(idHexa);
+    } else if (type === "rgb") {
+      const red = Math.floor(Math.random() * 255);
+      const green = Math.floor(Math.random() * 255);
+      const blue = Math.floor(Math.random() * 255);
+      colors.push({
+        red,
+        green,
+        blue,
+      });
+    }
+  }
+  return colors;
+};
+console.log(generateColors("hexa", 5));
+console.log(generateColors("rgb", 2));
+
+// Llame a su función shuffleArray, toma un array como parámetro y devuelve un array mezclada
+const shuffleArray = (array) => {
+  let shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[randomIndex]] = [
+      shuffledArray[randomIndex],
+      shuffledArray[i],
+    ];
+  }
+  console.log(shuffledArray);
+};
+shuffleArray([1, 2, 3, 4, 5]);
+
+// Llame a su función factorial, toma un número entero como parámetro y devuelve un factorial del número.
+const factorial = (n) => {
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  console.log(result);
+};
+factorial(5);
+
+// Llame a su función isEmpty, toma un parámetro y verifica si está vacío o no.
+const isEmpty = (params) => {
+  if (params === null || params === undefined || params === "") {
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(isEmpty());
+
+// Llame a su función sum, toma cualquier cantidad de argumentos y devuelve la suma.
+const sum = (...nums) => {
+  let total = 0;
+  for (let i = 0; i < nums.length; i++) {
+    total += nums[i];
+  }
+  total;
+};
+sum(1, 56, 79, 250);
+
+// Escriba una función llamada sumOfArrayItems, toma un array como parámetro y retorna la suma de todos los elementos. Compruebe si todos los elementos de la matriz son tipos de números. Si no, dé una respuesta razonable.
+const sumOfArrayItems = (...arr) => {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "number") {
+      console.log("Hay elementos no numericos en el array");
+      return;
+    }
+    total += arr[i];
+  }
+  total;
+};
+sumOfArrayItems(1, 54, 89, "elefante");
+sumOfArrayItems(1, 54, 89, 25, 2);
+
+// Escribe una función llamada average, toma un array como parámetro y retorna el promedio de los elementos. Compruebe si todos los elementos de la matriz son tipos de números. Si no, dé una respuesta adecuada.
+const average = (...arr) => {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "number") {
+      console.log("Hay elementos no numericos en el array");
+      return;
+    }
+    total += arr[i];
+  }
+  console.log(total / arr.length);
+};
+average(6, 6, 7, 9, 10, 8, 3);
+average(6, 6, 7, "9", 10);
+
+// Escriba una función llamada modifyArray que tome un array como parámetro y modifique el quinto elemento del array y retorna el array. Si la longitud del array es inferior a cinco, retorna 'elemento no encontrado'.
+const modifyArray = (arr) => {
+  if (arr.length < 5) {
+    console.log("elemento no encontrado");
+  } else {
+    arr[4] = arr[4].toUpperCase();
+    console.log(arr);
+  }
+};
+modifyArray(["Avocado", "Tomato", "Potato", "Mango", "Lemon", "Carrot"]);
+modifyArray(["Google", "Facebook", "Apple", "Amazon"]);
+
+// Escribe una función llamada isPrime, que verifica si un número es un número primo.
+const isPrime = (num) => {
+  if (num > 1 && num % 2 !== 0) {
+    console.log(`${num} es un número Primo`);
+  } else {
+    console.log(`${num} no es Primo`);
+  }
+};
+isPrime(5);
+isPrime(20);
+
+// Escriba una función que verifique si todos los elementos son únicos en un array.
+const allUnique = (arr) => {
+  const set = new Set(arr);
+  console.log(arr.length === set.size);
+};
+allUnique([1, 2, 3, 4, 5]);
+allUnique([1, 2, 4, 4, 5]);
+
+// Escriba una función que verifique si todos los elementos de un array son del mismo tipo de datos.
+const typeValue = (arr) => {
+  const type = typeof arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (typeof arr[i] !== type) return false;
+  }
+  return true;
+};
+console.log(typeValue([1, 4, 5, 3]));
+console.log(typeValue([1, "2", 5, 3]));
+
+// El nombre de las variables de JavaScript no admite caracteres o símbolos especiales, excepto $ o _. Escriba una función isValidVariable que verifique si una variable es válida o inválida.
+const isValidVariable = (arr) => {
+  const validCharacters = /^[a-zA-Z0-9_]+$/
+  return validCharacters.test(arr)
 }
-userIdGenerator()
+console.log(isValidVariable("_elefante"))
+console.log(isValidVariable("_$elefante"))
+
+// Escriba una función que devuelva un array de siete números aleatorios en un rango de 0-9. Todos los números deben ser únicos.
+const sevenRandomNumbers = () => {
+  const numbers = [];
+  while (numbers.length < 7) {
+    const number = Math.floor(Math.random() * 10);
+    if (!numbers.includes(number)) {
+      numbers.push(number);
+    }
+  }
+  return numbers;
+}
+console.log(sevenRandomNumbers())
+
+// 
