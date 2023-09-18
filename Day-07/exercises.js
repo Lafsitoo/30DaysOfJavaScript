@@ -466,13 +466,8 @@ const factorial = (n) => {
 };
 factorial(5);
 
-// Llame a su función isEmpty, toma un parámetro y verifica si está vacío o no.
 const isEmpty = (params) => {
-  if (params === null || params === undefined || params === "") {
-    return true;
-  } else {
-    return false;
-  }
+  return !params || params.trim() === "";
 };
 console.log(isEmpty());
 
@@ -491,7 +486,7 @@ const sumOfArrayItems = (...arr) => {
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] !== "number") {
-      console.log("Hay elementos no numericos en el array");
+      console.log("Hay elementos no numéricos en el array");
       return;
     }
     total += arr[i];
@@ -506,7 +501,7 @@ const average = (...arr) => {
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] !== "number") {
-      console.log("Hay elementos no numericos en el array");
+      console.log("Hay elementos no numéricos en el array");
       return;
     }
     total += arr[i];
@@ -579,4 +574,24 @@ const sevenRandomNumbers = () => {
 }
 console.log(sevenRandomNumbers())
 
-// 
+// Escriba una función llamada reverseCountries, toma el array de países y primero copia el array y retorna el array original invertido 
+const countries = [
+  "Albania",
+  "Bolivia",
+  "Canada",
+  "Denmark",
+  "Ethiopia",
+  "Finland",
+  "Germany",
+  "Hungary",
+  "Ireland",
+  "Iceland",
+  "Japan",
+  "Kenya",
+];
+
+const reverseCountries = (arr) => {
+  const reverse = [...arr]
+  return reverse.reverse()
+}
+console.log(reverseCountries(countries))
