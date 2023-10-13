@@ -21,6 +21,11 @@ while ((match = regExp.exec(text)) !== null) {
 }
 console.log(totalAnual);
 
+const regex = /b\w+/;
+const str = "A brown fox jumped over a lazy dog";
+let m;
+
+
 // La posición de algunas partículas en el eje horizontal x -12, -4, -3 y -1 en la dirección negativa, 0 en el origen, 4 y 8 en la dirección positiva. Extrae estos números y encuentra la distancia entre las dos partes más lejanas.
 points = ["-1", "2", "-4", "-3", "-1", "0", "4", "8"];
 sortedPoints = [-4, -3, -1, -1, 0, 2, 4, 8];
